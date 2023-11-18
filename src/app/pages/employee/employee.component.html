@@ -1,0 +1,41 @@
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="input-group mb-3">
+        <input type="number" class="form-control me-3" placeholder="Employee ID" [(ngModel)]="idEmployee">
+        <div class="input-group-append">
+          <button class="btn btn-custom" (click)="searchEmployee()">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="table" *ngIf="!noInfo">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Employee Name</th>
+        <th scope="col">Employee Salary</th>
+        <th scope="col">Employee Anual Salary</th>
+        <th scope="col">Employee Age</th>
+        <th scope="col">Profile Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <th scope="row">{{ employee.id }}</th>
+        <td>{{ employee.employee_name }}</td>
+        <td>{{ employee.employee_salary }}</td>
+        <td>{{ employee.employee_anual_salary }}</td>
+        <td>{{ employee.employee_age }}</td>
+        <td>{{ employee.profile_image }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="noInfo" class="d-flex justify-content-center align-items-center">
+    <h3>Employee not found</h3>
+  </div>
+</div>
+
